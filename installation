@@ -1,0 +1,9 @@
+aide:
+install composer:
+sudo apt install curl git
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+cd /var/www/html
+sudo git clone https://github.com/PrestaShop/PrestaShop.git prestashop
+cd /var/www/html/prestashop
+sudo composer install --no-dev
