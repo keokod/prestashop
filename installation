@@ -11,3 +11,12 @@ sudo composer install
 aller avec firefox dans le dossier d'install-dev et il nous invite à taper 
 
 Error : please install composer. Then run "php composer.phar install"
+
+si erreur 504 augmenter la taille dans php.fmp 
+max_execution
+ et dans site enable 
+ location ~ \.php$ {
+	include /etc/nginx/fastcgi_params;
+        fastcgi_pass  unix:/var/run/php5-fpm.sock;
+	fastcgi_read_timeout 300; 
+}
