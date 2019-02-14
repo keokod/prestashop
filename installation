@@ -6,4 +6,6 @@ curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/loca
 cd /var/www/html
 sudo git clone https://github.com/PrestaShop/PrestaShop.git prestashop
 cd /var/www/html/prestashop
-sudo composer install --no-dev
+sudo composer install
+
+aller avec firefox dans le dossier d'install-dev et il nous invite à taper la commande composer install-dev
