@@ -3,6 +3,11 @@ vagrant ssh
 vagrant@stretch:~$ sudo su
 root@stretch:/home/vagrant#
 
+#installe nodejs 
+apt-get install curl
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+apt install nodejs
+
 aide:
 install composer:
 sudo apt install curl git
