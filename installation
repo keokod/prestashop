@@ -14,11 +14,17 @@ apt-get install git
 #install nodejs
 cd /
 git clone https://github.com/c9/core.git c9
+cd c9
+#!!! important sudo sinon erreur acces denied
+sudo ./scripts/install-sdk.sh
+
 
 aide:
 install composer:
 sudo apt install curl git
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+
 
 cd /var/www/html
 sudo git clone https://github.com/PrestaShop/PrestaShop.git prestashop
