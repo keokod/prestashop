@@ -18,6 +18,9 @@ cd c9
 #!!! important sudo sinon erreur acces denied
 sudo ./scripts/install-sdk.sh
 
+#install nginx
+apt install nginx
+
 
 aide:
 install composer:
