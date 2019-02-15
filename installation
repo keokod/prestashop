@@ -25,7 +25,15 @@ apt install nginx
 sudo apt install curl git
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
-
+#install php
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-debian-8
+apt-get install php-curl
+apt-get install php-intl
+apt-get install php-zip
+apt-get install php-dom
+apt-get install php-xml
+apt-get install php-gd
+apt-get install php-mbstring
 
 cd /var/www/html
 sudo git clone https://github.com/PrestaShop/PrestaShop.git prestashop
