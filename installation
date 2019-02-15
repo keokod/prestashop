@@ -6,7 +6,10 @@ root@stretch:/home/vagrant#
 #installe nodejs 
 apt-get install curl
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+apt-get install -y nodejs
 apt install nodejs
+apt-get install build-essential
+apt-get install git
 
 aide:
 install composer:
