@@ -21,9 +21,7 @@ sudo ./scripts/install-sdk.sh
 #install nginx
 apt install nginx
 
-
-aide:
-install composer:
+#install composer:
 sudo apt install curl git
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
