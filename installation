@@ -1,3 +1,8 @@
+installer une vagrant
+vagrant ssh
+vagrant@stretch:~$ sudo su
+root@stretch:/home/vagrant#
+
 aide:
 install composer:
 sudo apt install curl git
