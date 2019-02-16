@@ -41,6 +41,8 @@ apt-get install php-gd
 apt-get install php-mbstring
 
 #config php ini:
+php --ini | grep "Loaded Configuration File"
+nano /etc/php/7.2/cli/php.ini
 
 https://www.prestashop.com/fr/configuration-requise
 #redémarer php fpm
