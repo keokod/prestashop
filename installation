@@ -35,6 +35,11 @@ apt-get install php-xml
 apt-get install php-gd
 apt-get install php-mbstring
 
+#config php ini:
+
+https://www.prestashop.com/fr/configuration-requise
+
+
 cd /var/www/html
 sudo git clone https://github.com/PrestaShop/PrestaShop.git prestashop
 cd /var/www/html/prestashop
