@@ -38,6 +38,9 @@ apt-get install php-mbstring
 #config php ini:
 
 https://www.prestashop.com/fr/configuration-requise
+#redémarer php fpm
+systemctl stop php7.0-fpm.service
+systemctl start php7.0-fpm.service
 
 
 cd /var/www/html
