@@ -43,8 +43,9 @@ wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
 apt-get update
 apt-get install ca-certificates apt-transport-https
-apt-get install php7.2 php7.2-cli php7.2-common php7.2-opcache php7.2-curl php7.2-mbstring php7.2-mysql php7.2-zip php7.2-xml
+apt-get install php7.2 php7.2-cli php7.2-common php7.2-opcache php7.2-curl php7.2-mbstring php7.2-mysql php7.2-zip php7.2-xml php7.2-mysql
 
+#extension pour prestashop
 apt-get install php-curl
 apt-get install php-intl
 apt-get install php-zip
@@ -53,14 +54,25 @@ apt-get install php-xml
 apt-get install php-gd
 apt-get install php-mbstring
 
+#test mysql avec php
+$con = @mysqli_connect('localhost', 'root', 'root', 'presta');
+
+if (!$con) {
+    echo "Error: " . mysqli_connect_error();
+	exit();
+}
+echo 'Connected to MySQL';
+
+
+
 #config php ini:
 php --ini | grep "Loaded Configuration File"
 nano /etc/php/7.2/cli/php.ini
 
 https://www.prestashop.com/fr/configuration-requise
 #redémarer php fpm
-systemctl stop php7.0-fpm.service
-systemctl start php7.0-fpm.service
+systemctl stop php7.2-fpm.service
+systemctl start php7.2-fpm.service
 
 
 cd /var/www/html
