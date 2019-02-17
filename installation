@@ -109,3 +109,9 @@ max_execution
         fastcgi_pass  unix:/var/run/php5-fpm.sock;
 	fastcgi_read_timeout 300; 
 }
+
+#installer prestashop:
+- récup zip
+-decomopresser 
+- aller dans install et executer cecli:
+presta/install# php index_cli.php --domain=domaine.fr --db_name=presta --db_user=presta --db_password=pass --email=email@email.fr --password=pass_admin --newsletter=0 --send_email=0
