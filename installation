@@ -75,7 +75,11 @@ if (!$con) {
 }
 echo 'Connected to MySQL';
 
-
+#creation de la base et création de compte
+CREATE USER 'prestashopuser'@'localhost' IDENTIFIED BY 'new_password_here';
+GRANT ALL ON prestashop.* TO 'prestashopuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
 
 #config php ini:
 php --ini | grep "Loaded Configuration File"
