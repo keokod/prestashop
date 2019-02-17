@@ -46,7 +46,14 @@ apt-get install ca-certificates apt-transport-https
 apt-get install php7.2 php7.2-cli php7.2-cgi  php7.2-common php7.2-opcache php7.2-curl php7.2-mbstring php7.2-mysql php7.2-zip php7.2-xml php7.2-mysql
 
 #configurer nginx, fastcgi obligatoire sinon la page "produit " arrive sur un 404
+https://github.com/keokod/prestashop/blob/master/mondomaine.fr
 
+#augmenter php.ini 
+nano /etc/php/7.2/cli/php.ini 
+file_uploads = On
+allow_url_fopen = On
+memory_limit = 256M
+upload_max_filesize = 64M
 
 
 
