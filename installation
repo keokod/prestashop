@@ -1,3 +1,19 @@
+#erreur accès sur le backend il faut vérfier:
+
+la base de donnée de la table ps_shop_url
+id_shop_url 	id_shop 	domain 	domain_ssl 	physical_uri 	virtual_uri 	main 	active
+ 	1 	1 	mondomaine.fr 	mondomaine.fr 	/ 		1 	1
+dans physical_url, il faut mettre "/" si les sources sont à la racine
+
+dans la conf mondomaine.fr il faut forcer à retrouver l'url de l'admin:
+
+    location /admin-prestashop {
+            try_files $uri $uri/ /admin-prestashsop/index.php?$args;
+        }
+	
+
+	
+
 installer une vagrant
 vagrant ssh
 vagrant@stretch:~$ sudo su
