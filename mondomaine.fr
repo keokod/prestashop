@@ -1,14 +1,23 @@
-server {
+# -------------------------------------------------------------------------------------------------
+# The following file is provided as-is by PrestaShop as an example configuration for your Nginx server.
+# It may be incomplete, and remember you must adapt it for your own server's needs!
+# Based on the work of MattLoyeD and Michael Dekker.
+# -------------------------------------------------------------------------------------------------
 
+server {
     # Ipv4
     listen 80;
-    
+
     # IPv6
-    # listen [::]:80;   
-    
+    # listen [::]:80;
+
     # SSL Ipv4 & v6
     # listen 443 ssl;
     # listen [::]:443 ssl;
+
+    # Your SSL Certificates, don't forget to take a look at Certbot (https://certbot.eff.org)
+    # ssl_certificate /etc/ssl/fullchain.pem;
+    # ssl_certificate_key /etc/ssl/privkey.pem;
 
     # ssl_session_timeout 24h;
     # ssl_session_cache shared:SSL:10m;
@@ -18,14 +27,21 @@ server {
     # Do not forget to create this file before with OpenSSL : "openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048"
     # ssl_dhparam /etc/nginx/ssl/dhparam.pem;
 
-    # Your domain names here
-    server_name ohkod.fr;
+    # [REQUIRED EDIT] Your domain name goes here
+    server_name server_name ohkod.fr www.ohkod.fr;
 
-    #Your website root location
-    root /c9/ohkod.fr/;  
+    # [REQUIRED EDIT] Absolute path to your website root on the filesystem
+    root /var/www/prestashop;
 
-    # Your admin folder
-    set $admin_dir /c9/ohkod.fr/presta/;
+    index index.php;
+    
+    #pour forcer à retrouver l'ur du backend
+    location /su1 {
+            try_files $uri $uri/ /su1/index.php?$args;
+        }
+
+    # Redirect 404 errors to prestashop
+    #error_page 404 /index.php?controller=404;
 
     # Gzip Settings, convert all types.
     gzip on;
@@ -61,80 +77,113 @@ server {
         text/vtt
         text/x-component
         text/x-cross-domain-policy;
-        # Supposed to be the case but we never know
-        # text/html;
-        
+
     gzip_disable "MSIE [1-6]\.(?!.*SV1)";
-    
-    # Symfony controllers
-    location ~ /(international|_profiler|module|product|feature|attribute|supplier|combination|specific-price|configure)/(.*)$ {
-      	try_files $uri $uri/ /index.php?q=$uri&$args $admin_dir/index.php$is_args$args;    	
-    }
 
-    location ~ \.php$ {
-            index index.php
-            include snippets/fastcgi-php.conf;
-            include fastcgi_params;
-            fastcgi_pass unix:/run/php/php7.2-fpm.sock;
-            fastcgi_param SCRIPT_FILENAME /c9/ohkod.fr/$fastcgi_script_name;
-            fastcgi_read_timeout 300; 
-    }
-    
-
-    # Redirect needed to "hide" index.php
-    location / {
-        try_files $uri $uri/ /index.php$uri&$args;
-
-        # Old image system ?
-        rewrite ^/([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$1$2$3.jpg last;
-        rewrite ^/([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$1$2$3$4.jpg last;
-        rewrite ^/([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$1$2$3$4$5.jpg last;
-        rewrite ^/([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$1$2$3$4$5$6.jpg last;
-        rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$1$2$3$4$5$6$7.jpg last;
-        rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$6/$1$2$3$4$5$6$7$8.jpg last;
-        rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$6/$7/$1$2$3$4$5$6$7$8$9.jpg last;
-        rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$6/$7/$8/$1$2$3$4$5$6$7$8$9$10.jpg last;
-        rewrite ^/c/([0-9]+)(-[.*_a-zA-Z0-9-]*)(-[0-9]+)?/.+.jpg$ /img/c/$1$2$3.jpg last;
-        rewrite ^/c/([a-zA-Z_-]+)(-[0-9]+)?/.+.jpg$ /img/c/$1$2.jpg last;
-
-    }
-    
-    error_page 404 /index.php?controller=404;
-
-    # Static assets delivery optimisations
-    add_header Strict-Transport-Security max-age=31536000;
+    # HSTS (Force clients to interact with your website using HTTPS only)
+    # For enhanced security, register your site here: https://hstspreload.org/
+    # WARNING: Don't use this if your site is not fully on HTTPS!
+    # add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" preload; always;
 
     # Cloudflare / Max CDN fix
-    location ~* \.(eot|otf|ttf|woff|woff2)$ {
+    location ~* \.(eot|otf|ttf|woff(?:2)?)$ {
         add_header Access-Control-Allow-Origin *;
     }
 
-    location ~* \.(css|js|docx|zip|pptx|swf|txt|jpg|jpeg|png|gif|swf|webp|flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac)$ {
-      expires max;
-      log_not_found off;
-      add_header Pragma public;
-      add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+    # Do not save logs for these
+    location = /favicon.ico {
+        auth_basic off;
+        allow all;
+        log_not_found off;
+        access_log off;
     }
 
-    # Deny access to .htaccess .DS_Store .htpasswd etc
+    location = /robots.txt {
+        auth_basic off;
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+
+    # [REQUIRED EDIT IF MULTILANG]
+    # rewrite ^/fr$ /fr/ redirect;
+    # rewrite ^/fr/(.*) /$1;
+
+    # Images
+    rewrite ^/([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$1$2$3.jpg last;
+    rewrite ^/([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$1$2$3$4.jpg last;
+    rewrite ^/([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$1$2$3$4$5.jpg last;
+    rewrite ^/([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$1$2$3$4$5$6.jpg last;
+    rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$1$2$3$4$5$6$7.jpg last;
+    rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$6/$1$2$3$4$5$6$7$8.jpg last;
+    rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$6/$7/$1$2$3$4$5$6$7$8$9.jpg last;
+    rewrite ^/([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$2/$3/$4/$5/$6/$7/$8/$1$2$3$4$5$6$7$8$9$10.jpg last;
+    rewrite ^/c/([0-9]+)(-[.*_a-zA-Z0-9-]*)(-[0-9]+)?/.+.jpg$ /img/c/$1$2$3.jpg last;
+    rewrite ^/c/([a-zA-Z_-]+)(-[0-9]+)?/.+.jpg$ /img/c/$1$2.jpg last;
+
+    # AlphaImageLoader for IE and fancybox
+    rewrite ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 last;
+
+    # Web service API
+    rewrite ^/api/?(.*)$ /webservice/dispatcher.php?url=$1 last;
+
+    # Installation sandbox
+    rewrite ^(/install(?:-dev)?/sandbox)/(.*) /$1/test.php last;
+
+    # [REQUIRED EDIT] Change this block to your admin folder
+    location /admin-dev/ {
+        if (!-e $request_filename) {
+            rewrite ^/.*$ /admin-dev/index.php last;
+        }
+    }
+
+
+    # File security
+    # .htaccess .DS_Store .htpasswd etc
     location ~ /\. {
         deny all;
     }
+    # Source code directories
+    location ~ ^/(app|bin|cache|classes|config|controllers|docs|localization|override|src|tests|tools|translations|travis-scripts|vendor|var)/ {
+        deny all;
+    }
+    # Prevent exposing other sensitive files
+    location ~ \.(yml|log|tpl|twig|sass)$ {
+        deny all;
+    }
 
-    # PHP 7 FPM part
-    location ~ [^/]\.php(/|$) {
+    # Prevent injection of php files
+    location /upload {
+        location ~ \.php$ {
+            deny all;
+        }
+    }
+    location /img {
+        location ~ \.php$ {
+            deny all;
+        }
+    }
 
-        fastcgi_index index.php;
+    # PHP FPM part
+    location ~ \.php$ {
+        # Verify that the file exists, redirect to index if not
+        try_files $fastcgi_script_name /index.php$uri&$args =404;
 
-        # Switch if needed
-        # include /etc/nginx/fastcgi_params;
-        include /etc/nginx/fastcgi.conf;
+        fastcgi_index  index.php;
 
-        # Do not forget to update this part if needed
-        # fastcgi_pass 127.0.0.1:9000;  
-        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
-        
+        # Environment variables for PHP
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+        include       fastcgi_params;
+
+        fastcgi_param PATH_INFO       $fastcgi_path_info;
+        fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+        # [REQUIRED EDIT] Connection to PHP-FPM - choose one
+        # fastcgi_pass 127.0.0.1:9000;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+
         fastcgi_keep_conn on;
         fastcgi_read_timeout 60s;
         fastcgi_send_timeout 60s;
@@ -143,37 +192,6 @@ server {
         # fastcgi_buffer_size 256k;
         # fastcgi_buffers 256 16k;
         # fastcgi_busy_buffers_size 256k;
-        client_max_body_size 10M;
-
-        # Temp file tweak
-        fastcgi_max_temp_file_size 0;
-        fastcgi_temp_file_write_size 256k;
-
-   }
-
-   # Allow access to robots.txt but disable logging every access
-   location = /robots.txt {
-       allow all;
-       log_not_found off;
-       access_log off;
-   }
-
-
-   # Prevent injection of php files in directories a user can upload stuff
-   location /upload {
-       location ~ \.php$ { deny all; }
-   }
-   location /img {
-       location ~ \.php$ {  deny all;}
-   }
-
-   # Ban access to source code directories
-   location ~ ^/(app|bin|cache|classes|config|controllers|docs|localization|override|src|tests|tools|translations|travis-scripts|vendor)/ {
-      deny all;
-   }
-
-   # Banned file types
-   location ~ \.(htaccess|yml|log|twig|sass|git|tpl)$ {
-       deny all;
-   }
+        client_max_body_size 20M;
+    }
 }
