@@ -28,7 +28,7 @@ server {
     # ssl_dhparam /etc/nginx/ssl/dhparam.pem;
 
     # [REQUIRED EDIT] Your domain name goes here
-    server_name server_name ohkod.fr www.ohkod.fr;
+    server_name server_name mondomaine.fr www.mondomaine.fr;
 
     # [REQUIRED EDIT] Absolute path to your website root on the filesystem
     root /var/www/prestashop;
