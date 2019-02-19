@@ -10,6 +10,11 @@ dans la conf mondomaine.fr il faut forcer à retrouver l'url de l'admin:
     location /admin-prestashop {
             try_files $uri $uri/ /admin-prestashsop/index.php?$args;
         }
+Lors de l'install, il faut rénitaliser le mot de passe avec le compte jhone doe
+dans la table ps_employee modifer le passwd par 
+1bfDrYBeFXatXibWIOCbuXBFs3TDXaEDF4Xw34Q90aVAfPWWf9h9qHL4motde passe
+
+le cookie key se trouve dans app/config/parameters.php:
 	
 
 	
