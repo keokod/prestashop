@@ -195,7 +195,7 @@ File: controllers/admin/AdminImportController.php:567</note>
       </trans-unit>
       <trans-unit id="97f08a40f22a625d0cbfe03db3349108" approved="yes">
         <source>Product ID</source>
-        <target xml:lang="fr" state="translated">ID produit</target>
+        <target xml:lang="fr" state="translated">A || ID produit</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:123</note>
       </trans-unit>
@@ -219,7 +219,7 @@ File: controllers/admin/AdminImportController.php:129</note>
       </trans-unit>
       <trans-unit id="8284ae5df53e6e7ffc1f2cc67ae68765" approved="yes">
         <source>Supplier reference</source>
-        <target xml:lang="fr" state="translated">Référence fournisseur</target>
+        <target xml:lang="fr" state="translated">O ||Référence fournisseur</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:131</note>
       </trans-unit>
@@ -231,13 +231,13 @@ File: controllers/admin/AdminImportController.php:243</note>
       </trans-unit>
       <trans-unit id="fbd99ad01b92dbafc686772a39e3d065" approved="yes">
         <source>UPC</source>
-        <target xml:lang="fr" state="translated">UPC</target>
+        <target xml:lang="fr" state="translated">R ||UPC</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:244</note>
       </trans-unit>
       <trans-unit id="ac0b7d0703609cbbfa09b53f8d793d29" approved="yes">
         <source>Minimal quantity</source>
-        <target xml:lang="fr" state="translated">Quantité minimale</target>
+        <target xml:lang="fr" state="translated">Y ||Quantité minimale</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:265</note>
       </trans-unit>
@@ -272,7 +272,7 @@ File: controllers/admin/AdminImportController.php:285</note>
 File: controllers/admin/AdminImportController.php:286</note>
       </trans-unit>
       <trans-unit id="f8a0fa3674c3336359b77bbe8e942a2c" approved="yes">
-        <source>ID / Name of shop</source>
+        <source>C || ID / Name of shop</source>
         <target xml:lang="fr" state="translated">ID ou nom de la boutique</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:515</note>
@@ -296,7 +296,7 @@ File: controllers/admin/AdminImportController.php:317</note>
 File: controllers/admin/AdminImportController.php:321</note>
       </trans-unit>
       <trans-unit id="fd0dcc6233b026d257763713c133cf72" approved="yes">
-        <source>Active (0/1)</source>
+        <source>B ||Active (0/1)</source>
         <target xml:lang="fr" state="translated">Actif (0/1)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:498</note>
@@ -315,7 +315,7 @@ File: controllers/admin/AdminImportController.php:513</note>
       </trans-unit>
       <trans-unit id="df8ffb90c945e796f2cfd9265325b9c3" approved="yes">
         <source>D ||Categories (x,y,z...)</source>
-        <target xml:lang="fr" state="translated">Catégories (x,y,z...)</target>
+        <target xml:lang="fr" state="translated">D ||Catégories (x,y,z...)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:229</note>
       </trans-unit>
@@ -350,8 +350,8 @@ File: controllers/admin/AdminImportController.php:234</note>
 File: controllers/admin/AdminImportController.php:235</note>
       </trans-unit>
       <trans-unit id="5d01d5588119abec82fd8004995de275" approved="yes">
-        <source>J || Discount percent</source>
-        <target xml:lang="fr" state="translated">Pourcentage de réduction</target>
+        <source> Discount percent</source>
+        <target xml:lang="fr" state="translated"> J || Pourcentage de réduction</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:236</note>
       </trans-unit>
@@ -369,13 +369,13 @@ File: controllers/admin/AdminImportController.php:238</note>
       </trans-unit>
       <trans-unit id="6928b30c9f87670d7621fe8f1fef7054" approved="yes">
         <source>Reference #</source>
-        <target xml:lang="fr" state="translated">N ||Référence</target>
+        <target xml:lang="fr" state="translated">M ||Référence</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:239</note>
       </trans-unit>
       <trans-unit id="c7d4affd54ce760d4731e21e3aa506fd" approved="yes">
         <source>Supplier reference #</source>
-        <target xml:lang="fr" state="translated">Référence fournisseur</target>
+        <target xml:lang="fr" state="translated">N ||Référence fournisseur</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:240</note>
       </trans-unit>
@@ -387,7 +387,7 @@ File: controllers/admin/AdminImportController.php:259</note>
       </trans-unit>
       <trans-unit id="7bbdd372c9d171174e3ce1ba9d97d5f6" approved="yes">
         <source>Additional shipping cost</source>
-        <target xml:lang="fr" state="translated">Frais de port supplémentaire</target>
+        <target xml:lang="fr" state="translated">AB || Frais de port supplémentaire</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:269</note>
       </trans-unit>
@@ -399,13 +399,13 @@ File: controllers/admin/AdminImportController.php:270</note>
       </trans-unit>
       <trans-unit id="bede52f418b34b1ab0db65f9450bdfc3" approved="yes">
         <source>Tags (x,y,z...)</source>
-        <target xml:lang="fr" state="translated">Mot-clés (x,y,z...)</target>
+        <target xml:lang="fr" state="translated">AG ||Mot-clés (x,y,z...)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:274</note>
       </trans-unit>
       <trans-unit id="db72e24b402e8baf8df6ca786a59e4de" approved="yes">
         <source>Rewritten URL</source>
-        <target xml:lang="fr" state="translated">URL réécrite</target>
+        <target xml:lang="fr" state="translated">AK ||URL réécrite</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:278</note>
       </trans-unit>
@@ -417,7 +417,7 @@ File: controllers/admin/AdminImportController.php:280</note>
       </trans-unit>
       <trans-unit id="cf7a1f189bbd1f48db0ece1da9cc0802" approved="yes">
         <source>Available for order (0 = No, 1 = Yes)</source>
-        <target xml:lang="fr" state="translated">Disponible à la commande (0 = Non, 1 = Oui)</target>
+        <target xml:lang="fr" state="translated"> AN || Disponible à la commande (0 = Non, 1 = Oui)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:281</note>
       </trans-unit>
@@ -657,7 +657,7 @@ File: controllers/admin/AdminImportController.php:570</note>
       </trans-unit>
       <trans-unit id="94fb72f3353fb2507e18fc6748f7a811" approved="yes">
         <source>Unit Price (tax excl.)*</source>
-        <target xml:lang="fr" state="translated">Prix unitaire (HT) *</target>
+        <target xml:lang="fr" state="translated"> AD || Prix unitaire (HT) *</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:571</note>
       </trans-unit>
@@ -859,7 +859,7 @@ File: controllers/admin/AdminShopController.php:548</note>
       </trans-unit>
       <trans-unit id="f71429893913cde74dcacde3d283626e" approved="yes">
         <source>Meta information</source>
-        <target xml:lang="fr" state="translated">Information méta</target>
+        <target xml:lang="fr" state="translated">AH ||Information méta</target>
         <note>Context:
 File: controllers/admin/AdminShopController.php:549</note>
       </trans-unit>
