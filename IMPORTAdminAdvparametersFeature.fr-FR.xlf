@@ -261,7 +261,7 @@ File: controllers/admin/AdminImportController.php:146</note>
       </trans-unit>
       <trans-unit id="4d2589e1bcd4263cb99927b59f0f88d2" approved="yes">
         <source>Image URLs (x,y,z...)</source>
-        <target xml:lang="fr" state="translated">URL des images (x,y,z, etc.)</target>
+        <target xml:lang="fr" state="translated">AR || URL des images (x,y,z, etc.)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:285</note>
       </trans-unit>
@@ -272,7 +272,7 @@ File: controllers/admin/AdminImportController.php:285</note>
 File: controllers/admin/AdminImportController.php:286</note>
       </trans-unit>
       <trans-unit id="f8a0fa3674c3336359b77bbe8e942a2c" approved="yes">
-        <source>C || ID / Name of shop</source>
+        <source>BB || ID / Name of shop</source>
         <target xml:lang="fr" state="translated">ID ou nom de la boutique</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:515</note>
@@ -285,7 +285,7 @@ File: controllers/admin/AdminImportController.php:313</note>
       </trans-unit>
       <trans-unit id="53acc0172842523c8a52f50894c6df15" approved="yes">
         <source>Depends on stock</source>
-        <target xml:lang="fr" state="translated">En fonction du stock</target>
+        <target xml:lang="fr" state="translated">BC || En fonction du stock</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:317</note>
       </trans-unit>
@@ -321,7 +321,7 @@ File: controllers/admin/AdminImportController.php:229</note>
       </trans-unit>
       <trans-unit id="88627291a92931577d427c5fd68f511e" approved="yes">
         <source>Price tax excluded</source>
-        <target xml:lang="fr" state="translated">? || Prix HT</target>
+        <target xml:lang="fr" state="translated">? G|| Prix HT</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:230</note>
       </trans-unit>
@@ -429,19 +429,19 @@ File: controllers/admin/AdminImportController.php:282</note>
       </trans-unit>
       <trans-unit id="21f7b5b011f253b35340528b7f190282" approved="yes">
         <source>Product creation date</source>
-        <target xml:lang="fr" state="translated">Date d'ajout du produit</target>
+        <target xml:lang="fr" state="translated">AP ||Date d'ajout du produit</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:283</note>
       </trans-unit>
       <trans-unit id="76aeea9f48196068e6b47d46d41e7618" approved="yes">
         <source>Show price (0 = No, 1 = Yes)</source>
-        <target xml:lang="fr" state="translated">Afficher le prix (0 = Non, 1 = Oui)</target>
+        <target xml:lang="fr" state="translated">AQ ||Afficher le prix (0 = Non, 1 = Oui)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:284</note>
       </trans-unit>
       <trans-unit id="4f5dc004cdd01ec9cf7fbbcf9f812aa7" approved="yes">
         <source>Delete existing images (0 = No, 1 = Yes)</source>
-        <target xml:lang="fr" state="translated">Supprimer les images existantes (0 = Non, 1 = Oui)</target>
+        <target xml:lang="fr" state="translated">AT ||Supprimer les images existantes (0 = Non, 1 = Oui)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:288</note>
       </trans-unit>
@@ -464,7 +464,7 @@ File: controllers/admin/AdminImportController.php:291</note>
 File: controllers/admin/AdminImportController.php:293</note>
       </trans-unit>
       <trans-unit id="da505e5a6dd5678894aa9f8663bf4db0" approved="yes">
-        <source>Uploadable files (0 = No, 1 = Yes)</source>
+        <source>AY ||Uploadable files (0 = No, 1 = Yes)</source>
         <target xml:lang="fr" state="translated">Fichiers téléchargeables (0 = Non, 1 = Oui)</target>
         <note>Context:
 File: controllers/admin/AdminImportController.php:294</note>
@@ -877,7 +877,7 @@ File: controllers/admin/AdminShopController.php:552</note>
       </trans-unit>
       <trans-unit id="3020c78ae45aff9a35b95856af076765" approved="yes">
         <source>Warehouses</source>
-        <target xml:lang="fr" state="translated">Entrepôts</target>
+        <target xml:lang="fr" state="translated">BE || Entrepôts</target>
         <note>Context:
 File: controllers/admin/AdminShopController.php:554</note>
       </trans-unit>
