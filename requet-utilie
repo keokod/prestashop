@@ -1,0 +1,1 @@
+UPDATE csv_masterlock SET prix = REPLACE(prix, '€', '') WHERE prix LIKE '€'
