@@ -1,3 +1,8 @@
+ https://www.youtube.com/watch?v=YcAWluYkVXc
+ docker ps // liste des container
+ docker rm -f 466
+
+ 
  creer un reseau docker:
   docker network create -d bridge --subnet 172.9.0.0/16 monreseau
   
@@ -5,4 +10,4 @@ docker network ls
 docker inspect monreseau
 docker run -tid --name 06becbbe8577 --network monreseau debian
 docker exec -ti 466 ip a
-https://www.youtube.com/watch?v=YcAWluYkVXc
+
