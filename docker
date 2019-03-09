@@ -18,6 +18,9 @@ ohkod_add_nano      latest              9efc3e4472ee        13 minutes ago      
 ohkod               latest              0af60a5c6dd0        4 days ago          101MB
 
 #5 charger l'image
+docker load -i ohkod_nano.tar
+5bb0785f2eee: Loading layer [==================================================>]  105.5MB/105.5MB
+e8ccf2149fd7: Loading layer [==================================================>]  19.34MB/19.34MB
 
 
 
