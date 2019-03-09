@@ -1,3 +1,26 @@
+
+#import_export docker
+#1 lire le processus pour récupér l'id du container
+docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+bcb888ece708        ohkod               "bash"              2 minutes ago       Up 2 minutes                            daz
+
+#2 commiter l'image sur l'id du container ici "bcb ...."
+docker commit -p bcb ohkod_add_nano
+
+#3 enregister le container en image sous forme d'image
+docker save -o ohkod_nano.tar ohkod_nano
+
+#4 verifier que l'image à grossi (ohkod_nano)
+docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ohkod_add_nano      latest              9efc3e4472ee        13 minutes ago      120MB
+ohkod               latest              0af60a5c6dd0        4 days ago          101MB
+
+#5 charger l'image
+
+
+
 #TEST serveur nginx docker :
 docker run --name srv-nginx -p 80:80 nginx //lancer nginx
 #faire un docker ps pour savoir quel port il utilise, ici il utilise le port 32768:
