@@ -1,2 +1,5 @@
  creer un reseau docker:
   docker network create -d bridge --subnet 172.9.0.0/16 monreseau
+  
+docker network ls
+docker inspect monreseau
