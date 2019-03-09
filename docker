@@ -5,4 +5,4 @@ docker network ls
 docker inspect monreseau
 docker run -tid --name 06becbbe8577 --network monreseau debian
 docker exec -ti 466 ip a
-
+https://www.youtube.com/watch?v=YcAWluYkVXc
