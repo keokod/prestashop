@@ -1,4 +1,16 @@
- https://www.youtube.com/watch?v=YcAWluYkVXc
+#TEST serveur nginx docker :
+docker run --name srv-nginx -p 80:80 nginx //lancer nginx
+#faire un docker ps pour savoir quel port il utilise, ici il utilise le port 32768:
+docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                   NAMES
+2821bedb52cd        nginx               "nginx -g 'daemon of…"   15 seconds ago      Up 12 seconds       0.0.0.0:32768->80/tcp   demo_nginx
+#dans la box sfr faire un redirectiond de port NAT
+
+
+#install iredmail
+docker pull lejmr/iredmail:mysql-0.9.8
+
+https://www.youtube.com/watch?v=YcAWluYkVXc
  docker ps // liste des container
  docker rm -f 466
 
