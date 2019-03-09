@@ -2,12 +2,18 @@
  docker ps // liste des container
  docker rm -f 466
 
- 
- creer un reseau docker:
-  docker network create -d bridge --subnet 172.9.0.0/16 monreseau
-  
 docker network ls
 docker inspect monreseau
-docker run -tid --name 06becbbe8577 --network monreseau debian
-docker exec -ti 466 ip a
+docker network rm 
+
+docker run -it --name nom_container --add-host nom_machine:127.9.0.1 debian
+cat /etc/hosts
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters
+127.9.0.1	nom_machine
+172.17.0.2	40086f74dcff
 
