@@ -1,4 +1,4 @@
-apt-get install letsencrypt
+apt-get install letsencrypt après avoir installer iredmail
 nano /etc/nginx/sites-available/default
 #editer comme ceci
 server {
