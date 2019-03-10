@@ -22,3 +22,5 @@ IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at:
    /etc/letsencrypt/live/ohkod.fr/fullchain.pem
    Your key file has been saved at:
+   #augmenation de la sécurité
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
