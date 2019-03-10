@@ -1,1 +1,24 @@
-s
+apt-get install letsencrypt
+nano /etc/nginx/sites-available/default
+#editer comme ceci
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name mondomaine.com www.mondomaine.com;
+        root /var/www/mondomaine.com;
+        index index.php index.html;
+
+        location ~ /.well-known {
+                allow all;
+        }
+       
+nginx -t
+systemctl restart nginx
+#générationd e la clef
+etsencrypt certonly -a webroot --webroot-path=/var/www/html -d mondomaine.com -d www.mondomaine.com
+
+#doit afficher ceci
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/ohkod.fr/fullchain.pem
+   Your key file has been saved at:
