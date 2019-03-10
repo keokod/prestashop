@@ -66,4 +66,5 @@ server {
         listen [::]:443 ssl http2 default_server;
 
     server_name mondomaine.com;
-
+#testé avec le https
+https://www.ssllabs.com/ssltest/analyze.htm
