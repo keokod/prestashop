@@ -24,3 +24,8 @@ IMPORTANT NOTES:
    Your key file has been saved at:
    #augmenation de la sécurité
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
+# rm -f /etc/ssl/private/iRedMail.key
+# rm -f /etc/ssl/certs/iRedMail.crt
+# ln -s /etc/letsencrypt/live/ohkod.fr/privkey.pem /etc/ssl/private/iRedMail.key
+# ln -s /etc/letsencrypt/live/ohkod.fr/fullchain.pem /etc/ssl/certs/iRedMail.crt
+#
