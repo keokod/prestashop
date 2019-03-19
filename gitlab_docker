@@ -1,0 +1,4 @@
+#installer nginx pour simuler un autre serveur
+docker pull nginx
+
+docker pull gitlab/gitlab-ce
