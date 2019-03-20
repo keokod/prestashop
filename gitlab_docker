@@ -31,3 +31,23 @@ chmod +x /usr/local/bin/docker-compose
 
 #commencer le compose
 docer-compose up
+
+#verifier l'adresse ip:
+docker inspect x3-gitlab-f2
+#a la fin vous avez ceci:
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+
+#aller sur cette adresse vous devez avoir la page authentification gitlab:
+172.18.0.2
+#mettre mot de passe admin
+
+
+
