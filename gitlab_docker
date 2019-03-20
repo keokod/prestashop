@@ -1,3 +1,5 @@
+https://github.com/x3rus/training/blob/master/gitlab/01-presentation.md
+
 #installer nginx pour simuler un autre serveur
 docker pull nginx
 
