@@ -1,6 +1,28 @@
 https://github.com/x3rus/training/blob/master/gitlab/01-presentation.md
-
-#installer nginx pour simuler un autre serveur
-docker pull nginx
-
-docker pull gitlab/gitlab-ce
+# creer un dossier ou mettre docker compose
+mkdir gitlab
+cd gitlab
+mkdir dockers
+cd docker
+#editer docker compose:
+version: '2'
+services:
+    gitlab:
+        image: 'gitlab/gitlab-ce:latest'
+    #    restart: always
+        container_name : 'x3-gitlab-f2'
+        hostname: git.ohkod.fr
+        environment:
+            TZ: Europe/Paris
+            GITLAB_OMNIBUS_CONFIG: |
+                gitlab_rails['time_zone'] ='Europe/Paris'
+                gitlab_rails['gitlab_email_from'] = 'keo@ohkod.fr'
+                gitlab_rails['smtp_enable'] = true
+        volumes:
+            - '/srv/docker/x3-gitlab-f2/gitlab/etc:/etc/gitlab'
+            - '/srv/docker/x3-gitlab-f2/gitlab/logs:/var/log/gitlab'
+            - '/srv/docker/x3-gitlab-f2/gitlab/data/:/var/opt/gitlab'
+            
+            
+#commencer le compose
+docer-compose up
