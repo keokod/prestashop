@@ -1,0 +1,146 @@
+Ce qui nous ressort donc ceci :
+
+{$shop.name} => nom de la boutique
+{$shop.email} => email associé à la boutique
+{$shop.logo} => logo de la boutique (qui se trouve lui dans « Apparence » puis « Thème et logo »)
+{$shop.favicon} => le favicon de votre boutique (lui aussi au même endroit que les logos et le thème)
+{$shop.address.address1} => champ d’adresse 1 de votre boutique
+{$shop.address.address2} => champ d’adresse 2 de votre boutique
+{$shop.address.postcode} => code postal de votre boutique
+{$shop.address.city} => ville de votre boutique
+{$shop.address.state} => province de votre boutique, ou Etat si celle-ci se trouve à l’étranger (comme aux USA)
+{$shop..address.country} => le pays de votre boutique
+{$shop.phone} => téléphone de votre boutique
+{$shop.fax} => et enfin le fax de votre boutique
+
+ 
+
+Variables Prestashop 1.7 de devise/monnaie {$currency}
+{$currency.name} => le nom de la devise (euro, dollar, livre sterling…)
+{$currency.iso_code} => le code ISO de la monnaie (comme EUR pour l’euro)
+{$currency.sign} => le sigle de la devise affichée (donc € ou $)
+{$currency.iso_code_num} => le numéro du code ISO de cette devise (comme 978 pur l’euro)
+
+ 
+
+Variables Prestashop 1.7 de langue {$language}
+{$language.name} => le nom de la langue (français par exemple)
+{$language.iso_code} => code ISO de la langue en cours
+{$language.language_code} => code langue de la langue en cours (comme fr, en, de, it…)
+{$language.is_rtl} => la langue se lit-elle de droite à gauche (« rtl = right to left »)
+{$language.format_lite} y {$language.format_full} => Formato de fecha simplicado y formato de fecha completo
+{$language.id} => ID de la langue (en database)
+
+ 
+
+Variables Prestashop 1.7 des clients {$customer}
+Le client et ses informations
+{$customer.lastname} => le nom de famille du client connecté
+{$customer.firstname} => le prénom du client connecté
+{$customer.email} => l’adresse email du client
+{$customer.birthday} => date de naissance du client (mais celle-ci n’est plus obligatoire désormais)
+{$customer.newsletter} => s’il est inscrit à la newsletter (booléen donc)
+{$customer.newsletter_date_add} => date d’inscription à la newsletter
+{$customer.ip_registration_newsletter} => adresse IP d’enregistrement à la newsletter
+{$customer.optin} => oui ou non, le client a-t-il accepté de recevoir des offres de la part de vos partenaires ?
+{$customer.date_add} => date de création du client
+{$customer.date_upd} => dernière date de modification du client
+{$customer.id} => identifiant du client (son ID en base de données)
+{$customer.id_default_group} => identifiant du groupe client par défaut de ce client
+{$customer.is_logged} => le client est-il connecté ?
+{$customer.gender.name[$customer.gender.id]} => genre du client (M., Mme, etc)
+{$customer.addresses[id_address].city} => Ciudad del cliente de la dirección ‘X’ que tiene asociado. (ID Dirección, porque un cliente teóricamente puede tener múltiples direcciones)
+
+ 
+
+Le client et ses adresses
+Bon à partir de là, partons du principe que le client dispose d’une adresse a minima. Chaque adresse dispose d’un identifiant, nous allons nous en servir pour récupérer des informations utiles. Remplacez donc id_address par l’identifiant de l’adresse client dont vous souhaitez avoir des informations.
+
+{$customer.addresses[id_address].alias} => alias de l’adresse
+{$customer.addresses[id_address].firstname} => prénom de la personne liée à l’adresse
+{$customer.addresses[id_address].lastname} => nom de la personne liée à l’adresse
+{$customer.addresses[id_address].company} => nom de l’entreprise liée à cette adresse
+{$customer.addresses[id_address].address1} => premier champ d’adresse (le plus utilisé donc)
+{$customer.addresses[id_address].address2} => second champ de l’adresse
+{$customer.addresses[id_address].postcode} => code postal
+{$customer.addresses[id_address].id_state} => identifiant du pays
+{$customer.addresses[id_address].state} => Etat ou province
+{$customer.addresses[id_address].state_iso} => code ISO de l’Etat ou de la province
+{$customer.addresses[id_address].id_country} => ID du pays de l’adresse en cours
+{$customer.addresses[id_address].country} => nom du pays
+{$customer.addresses[id_address].country_iso} => code ISO de ce pays
+{$customer.addresses[id_address].phone} => numéro de téléphone fixe
+{$customer.addresses[id_address].phone_mobile} => numéro de téléphone portable
+{$customer.addresses[id_address].dni} => DNI de l’adresse
+{$customer.addresses[id_address].vat_number} => numéro de TVA intracommunautaire du client
+{$customer.addresses[id_address].formatted} => adresse formatée du client
+
+ 
+
+Variables Prestashop 1.7 de page {$page}
+{$page.meta.title} => balise title de votre page (65 caractères maximum !)
+{$page.meta.description} => balise meta description de votre page (pas plus de 300 caractères, ne descendez pas en-dessous de 90 !)
+{$page.page_name} => nom de la page sur laquelle vous vous trouvez (comme index, product, category…)
+
+ 
+
+Variables Prestashop 1.7 d’URL {$url}
+Selon moi parmi les variables les plus utiles ! Elles vous permettront d’optimiser votre header voire d’auto-générer les balises title et meta description de manière à gagner du temps en référencement naturel sous Prestashop 1.7 (comme Prestashop 1.6 d’ailleurs, sauf que la syntaxe diffère).
+
+URL globales (répertoires, site et thème)
+{$urls.base_url} => il s’agit de l’URL de la page d’accueil de votre Prestashop
+{$urls.current_url} => la page sur laquelle vous vous trouvez !
+{$urls.shop_domain_url} => le nom de domaine de la boutique
+{$urls.img_ps_url} => l’URL du répertoire /img de votre Prestashop
+{$urls.img_cat_url} => l’URL des images des catégories, donc dans /img/c
+{$urls.img_lang_url} => l’URL des images des langues du site
+{$urls.img_prod_url} => l’URL des images des produits, donc /img/p
+{$urls.img_manu_url} => l’URL des images des fabriquants (manufacturers), donc /img/m
+{$urls.img_sup_url} => l’URL des images liées aux fournisseurs
+{$urls.img_ship_url} => l’URL des images liées aux transporteurs
+{$urls.img_store_url} => 
+{$urls.img_url} => l’URL des images dans votre thème, donc /themes/votretheme/assets/img
+{$urls.css_url} => l’URL des fichiers CSS de votre thème, donc /themes/votretheme/assets/css
+{$urls.js_url} => l’URL des fichiers javascript de votre thème, donc /themes/votretheme/assets/js
+{$urls.pic_url} => l’URL du répertoire /upload
+
+ 
+
+URL des pages
+{$urls.pages.address} => l’URL de la page « Mon adresse » côté client
+{$urls.pages.addresses} => l’URL de la page « Mes adresses » côté client
+{$urls.pages.authentication} => l’URL de la page de connexion
+{$urls.pages.cart} => l’URL du panier
+{$urls.pages.category} => l’URL de la catégorie
+{$urls.pages.cms} => l’URL des CMS
+{$urls.pages.contact} –> l’URL de la page de contact (le formulaire Prestashop si souvent spammé 🙂 )
+{$urls.pages.discount} => l’URL de la page des promotions
+{$urls.pages.guest_tracking} => l’URL de suivi de commande pour les clients du groupe « Invités »
+{$urls.pages.history} => l’URL de l’historique des commandes
+{$urls.pages.identity} => l’URL de la page des informations personnelles côté client
+{$urls.pages.index} => l’URL de la page, tout simplement !
+{$urls.pages.my_account} => l’URL de la page « Mon Compte »
+{$urls.pages.order_confirmation} => l’URL de la page de confirmation de commande
+{$urls.pages.order_follow} => l’URL de la page de suivi de commande
+{$urls.pages.order} => l’URL de la page de commande !
+{$urls.pages.order_return} => l’URL de la page de retour de commande, utile notamment pour paramétrer des modules de paiement
+{$urls.pages.order_slip} => l’URL à appeler pour le bon de commande
+{$urls.pages.pagenotfound} => La 404
+{$urls.pages.password} => l’URL de la page de récupération de mot de passe (« Mot de passe oublié ? »)
+{$urls.pages.pdf_invoice} => l’URL des PDF des factures
+{$urls.pages.pdf_order_return} => l’URL des PDF de retours de commandes
+{$urls.pages.pdf_order_slip} => l’URL du PDF des bons de commandes
+{$urls.pages.prices_drop} => l’URL de la page listant les produits aux prix réduits
+{$urls.pages.product} => l’URL de la fiche produit
+{$urls.pages.search} => l’URL de la page de recherche
+{$urls.pages.sitemap} => votre page de plan de site, à ne pas confondre avec le sitemap
+{$urls.pages.stores} => la page listant vos magasins
+{$urls.pages.supplier} => la page listant vos fabricants
+{$urls.pages.register} => l’URL de la page de création de compte
+{$urls.pages.order_login} => URL de connexion depuis le tunnel de commande
+{$urls.theme_assets} => URL vers le répertoire /assets de votre thème (contenant donc les CSS, le JS, les IMG, etc)
+{$urls.actions.logout} => URL de déconnexion pour le client
+
+ 
+
+Personnellement, je trouve que ces variables se sont grandement améliorées par rapport à Prestashop 1.6, et simplifient beaucoup la gestion des thèmes et des modules sur la version 1.7.
